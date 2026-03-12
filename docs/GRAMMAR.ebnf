@@ -1,0 +1,31 @@
+quiz            = quiz_open, title, question, { question }, quiz_close ;
+
+title           = title_open, text_content, title_close ;
+
+question        = question_open, qtext, option, option, { option }, question_close ;
+
+qtext           = text_open, text_content, text_close ;
+
+option          = option_open, text_content, option_close
+                | option_open_correct, text_content, option_close ;
+
+quiz_open       = "<quiz>" ;
+quiz_close      = "</quiz>" ;
+
+title_open      = "<title>" ;
+title_close     = "</title>" ;
+
+question_open   = "<question>" ;
+question_close  = "</question>" ;
+
+text_open       = "<text>" ;
+text_close      = "</text>" ;
+
+option_open     = "<option>" ;
+option_open_correct
+                = '<option correct="true">' ;
+option_close    = "</option>" ;
+
+text_content    = character, { character } ;
+
+character       = ? any character except "<" ? ;
