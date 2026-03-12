@@ -8,21 +8,28 @@ class Lexer:
     # Python allows named capturing groups, such as (?P<{name}>{pattern})
     # Patterns will be matched from top -> down
     patterns = [
+        # Eat white space first
+        r"(?P<WHITE_SPACE>\s+)",
+
+        # Then opening tags
         r"(?P<QUIZ_OPEN><quiz>)",
-        r"(?P<QUIZ_CLOSE></quiz>)",
         r"(?P<TITLE_OPEN><title>)",
-        r"(?P<TITLE_CLOSE></title>)",
         r"(?P<QUESTION_OPEN><question>)",
-        r"(?P<QUESTION_CLOSE></question>)",
         r"(?P<TEXT_OPEN><text>)",
-        r"(?P<TEXT_CLOSE></text>)",
         r"(?P<OPTION_OPEN><option>)",
         r'(?P<OPTION_OPEN_CORRECT><option correct="true">)',
+
+        # This captures all characters until a character in [.!?\w] is found, as long as there is a '<' following it.
+        r"(?P<TEXT_CONTENT>.*?[.!?\w])(?=\s*<)",
+
+        # Closing tags
+        r"(?P<TEXT_CLOSE></text>)",
         r"(?P<OPTION_CLOSE></option>)",
-        r"(?P<WHITE_SPACE>\s+)",
-        # This looks for any characters other than a '<', which captures text until it hits a '<'.
-        # TODO fix trailing whitespace being captured.
-        r"(?P<TEXT_CONTENT>[^<]+)",
+        r"(?P<QUESTION_CLOSE></question>)",
+        r"(?P<TITLE_CLOSE></title>)",
+        r"(?P<QUIZ_CLOSE></quiz>)",
+
+        # Mismatch
         r"(?P<MISMATCH>.)"
     ]
 
