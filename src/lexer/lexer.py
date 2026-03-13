@@ -20,7 +20,7 @@ class Lexer:
         r'(?P<OPTION_OPEN_CORRECT><option correct="true">)',
 
         # This captures all characters until a character in [.!?\w] is found, as long as there is a '<' following it.
-        r"(?P<TEXT_CONTENT>.*?[.!?\w])(?=\s*<)",
+        r"(?P<TEXT_CONTENT>[^<]*?[.!?\w])(?=\s*<)",
 
         # Closing tags
         r"(?P<TEXT_CLOSE></text>)",
@@ -29,8 +29,8 @@ class Lexer:
         r"(?P<TITLE_CLOSE></title>)",
         r"(?P<QUIZ_CLOSE></quiz>)",
 
-        # Mismatch
-        r"(?P<MISMATCH>.)"
+        # Mismatch - collects text until the next ending tag or starting tag
+        r"(?P<MISMATCH>.+?[<>])"
     ]
 
 
@@ -63,7 +63,7 @@ class Lexer:
             if token_type == 'WHITE_SPACE':
                 continue
             elif token_type == "MISMATCH":
-                raise RuntimeError(f'Unexpected character {matched_text}')
+                raise RuntimeError(f'Unexpected text content {matched_text}')
             
             # Add the identified token to our list
             self.tokens.append((token_type, matched_text))

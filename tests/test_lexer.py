@@ -135,3 +135,54 @@ def test_multi_question_success():
     tokens = lexer.scan()
     assert tokens == expected_tokens
 
+
+def test_incorrect_title_tag_failure():
+    input = """
+            <quiz>
+                <title1234324> Math Quiz </title>
+                <question>
+                    <text> What is 2 + 2? </text>
+                    <option> 3 </option>
+                    <option correct="true"> 4 </option>
+                    <option> 5 </option>
+                </question>
+                <question>
+                    <text> Is 5 an even number? </text>
+                    <option> Yes </option>
+                    <option correct="true"> No </option>
+                </question>
+            </quiz>
+            """
+    
+    try:
+        lexer = lex.Lexer(input)
+        lexer.scan()
+        assert False
+    except RuntimeError as error:
+        assert str(error) == "Unexpected text content <title1234324>"
+
+
+def test_incorrect_question_tag_failure():
+    input = """
+            <quiz>
+                <title> Math Quiz </title>
+                <question>
+                    <text> What is 2 + 2? </text>
+                    <option> 3 </option>
+                    <option correct="true"> 4 </option>
+                    <option> 5 </option>
+                </question>
+                <question>
+                    <text> Is 5 an even number? </text>
+                    <option> Yes </option>
+                    <option correct="true"> No </option>
+                </question1>
+            </quiz>
+            """
+    
+    try:
+        lexer = lex.Lexer(input)
+        lexer.scan()
+        assert False
+    except RuntimeError as error:
+        assert str(error) == "Unexpected text content </question1>"
