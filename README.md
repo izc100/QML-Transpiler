@@ -19,7 +19,20 @@ cd QML-Transpiler
 python src/main.py sample/midterm.quiz
 ```
 
+## Tests
+
+To run tests and avoid module import issues with the PYTHON_PATH:
+1. Install pytest by running `pip install pytest`
+2. Run `pytest` from the root directory to execute tests.
+
 ## Milestones
+
+### Lexer
+
+The Lexer was pending review and completed on 3/12/2026 by Brandon Hoggatt. It follows the suggestions
+in the instructions and uses named capturing groups with a regex pattern for each token. It then combines
+all of these patterns into one master pattern, and parses the entire string, creating match objects for 
+each match. Those match objects can then be iterated over to extract the tokens, and returned to the parser.
 
 ## Team Workflow
 

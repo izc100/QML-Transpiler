@@ -24,7 +24,8 @@ A living document tracking the project from day one. Update regularly, not at th
 
 ### Roadblocks
 *Document technical hurdles, regex choices, attribute handling, bug fixes, etc.*
-
+Brandon - debugged issue where regex pattern was not accurately capturing the bad input,
+and was only including the first character - 3/13/2026.
 
 ---
 
