@@ -3,8 +3,8 @@
 import json
 import unittest
 
-from parser import Parser
-from lexer.lexer import Lexer
+from src.parser.parser import Parser
+from src.lexer.lexer import Lexer
 
 
 class TestParser(unittest.TestCase):
