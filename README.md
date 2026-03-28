@@ -15,8 +15,11 @@ A front-end compiler (transpiler) for a custom Quiz Markup Language (QML). Educa
 git clone https://github.com/izc100/QML-Transpiler.git
 cd QML-Transpiler
 
-# Run from repo root (once implemented)
-python src/main.py sample/midterm.quiz
+# Run from repo root
+python main.py sample/midterm.quiz
+
+# Alternatively, you can specify the destination file
+python main.py sample/midterm.quiz output.json
 ```
 
 ## Tests
@@ -33,6 +36,11 @@ The Lexer was pending review and completed on 3/12/2026 by Brandon Hoggatt. It f
 in the instructions and uses named capturing groups with a regex pattern for each token. It then combines
 all of these patterns into one master pattern, and parses the entire string, creating match objects for 
 each match. Those match objects can then be iterated over to extract the tokens, and returned to the parser.
+
+### Generator
+
+The Serializer was completed on 3/28/26 by Elijah Reyna, along with some tests, and was waiting for review at this time. 
+It uses the json library to dump the AST into a file or string.
 
 ## Team Workflow
 
