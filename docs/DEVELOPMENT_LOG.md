@@ -40,7 +40,7 @@ Brandon Hoggat
 Isaac Chapman
 
 ### Member 3
-Elijah Reyan
+Elijah Reyna
 
 ### Member 4
 Andrew Benyacko
