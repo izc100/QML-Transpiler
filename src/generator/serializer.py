@@ -2,7 +2,6 @@
 
 import json
 
-from src.lexer.lexer import Lexer
 from src.parser.parser import Parser
 
 class Serializer:
