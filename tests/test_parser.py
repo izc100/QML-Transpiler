@@ -189,6 +189,23 @@ class TestParser(unittest.TestCase):
             "OPTION_OPEN" in message or "OPTION_OPEN_CORRECT" in message
         )
 
+    def test_zero_options_should_fail(self):
+        source_code = """
+<quiz>
+    <title> No Options Quiz </title>
+    <question>
+        <text> Where are the options? </text>
+    </question>
+</quiz>
+"""
+        with self.assertRaises(SyntaxError) as context:
+            self.parse_source(source_code)
+
+        message = str(context.exception)
+        self.assertTrue(
+            "OPTION_OPEN" in message or "OPTION_OPEN_CORRECT" in message
+        )
+
     def test_empty_title_should_fail(self):
         source_code = """
 <quiz>

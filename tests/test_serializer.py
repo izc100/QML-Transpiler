@@ -3,7 +3,6 @@
 import pytest
 import json
 from src.generator.serializer import Serializer
-from src.parser.parser import Parser
 
 # -------------------------
 # Helper token sets

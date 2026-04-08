@@ -186,3 +186,23 @@ def test_incorrect_question_tag_failure():
         assert False
     except RuntimeError as error:
         assert str(error) == "Unexpected text content </question1>"
+
+
+def test_invalid_option_attribute_format_failure():
+    input = """
+            <quiz>
+                <title> Attribute Format Quiz </title>
+                <question>
+                    <text> Which option format is valid? </text>
+                    <option correct=true> Invalid </option>
+                    <option> Valid fallback </option>
+                </question>
+            </quiz>
+            """
+
+    try:
+        lexer = lex.Lexer(input)
+        lexer.scan()
+        assert False
+    except RuntimeError as error:
+        assert str(error) == "Unexpected text content <option correct=true>"
