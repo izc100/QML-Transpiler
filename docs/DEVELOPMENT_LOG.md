@@ -49,6 +49,8 @@ Elijah - I learned about parsing and lexing, as well as building the abstract sy
 
 Isaac - I mostly handled documentation, git workflow, and integration. I did not handle the language as much but I got to see the end result and how it works. The biggest thing I did see was how the transplier is not only three separate programs but if the token format or structure drifts between stages, everything breaks in subtle ways until you test end-to-end. Everyone worked really fast and well together, so there were no problems with communication. I found looking over everything to be a little difficult, just took time. 
 
+Andrew - I designed and implemented the recursive-descent parser and wrote its initial test suite. Building the parser required carefully translating EBNF grammar rules into dedicated methods while enforcing structural constraints — such as minimum option counts and non-empty fields — directly at parse time. Writing the tests alongside the parser helped me catch edge cases early and strengthened my understanding of how recursive-descent parsing and error handling work in practice.​​​​​​​​​​​​​​​​
+
 ### Member 1
 Brandon Hoggatt
 
