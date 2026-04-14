@@ -45,7 +45,9 @@ A living document tracking the project from day one. Update regularly, not at th
 
 ## Individual Reflections
 
-*Each team member adds a 1-paragraph reflection at the end of the project.*
+Elijah - I learned about parsing and lexing, as well as building the abstract syntax tree in python. I did not experience any roadblocks in my work. Overall the project was fun and not too difficult.
+
+Isaac - I mostly handled documentation, git workflow, and integration. I did not handle the language as much but I got to see the end result and how it works. The biggest thing I did see was how the transplier is not only three separate programs but if the token format or structure drifts between stages, everything breaks in subtle ways until you test end-to-end. Everyone worked really fast and well together, so there were no problems with communication. I found looking over everything to be a little difficult, just took time. 
 
 ### Member 1
 Brandon Hoggatt
