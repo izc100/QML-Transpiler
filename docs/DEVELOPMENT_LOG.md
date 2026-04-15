@@ -51,6 +51,12 @@ Isaac - I mostly handled documentation, git workflow, and integration. I did not
 
 Andrew - I designed and implemented the recursive-descent parser and wrote its initial test suite. Building the parser required carefully translating EBNF grammar rules into dedicated methods while enforcing structural constraints — such as minimum option counts and non-empty fields — directly at parse time. Writing the tests alongside the parser helped me catch edge cases early and strengthened my understanding of how recursive-descent parsing and error handling work in practice.​​​​​​​​​​​​​​​​
 
+Brandon - I learned a lot about using regexes in python to capture input, and combining them using the '|' pipe operator. Also,
+utilizing `re.finditer` to iterate over all of the pattern matches within the text in one function is a very elegant and clean approach
+to solving this problem. I learned about the importance of having accurate and specific tokens in language processing, where ambiguous ones
+could cause errors. Additionally, I found creating the right tokens challenging, and making the text_content token broad enough to capture inputs between
+two tags the most challenging out of all of them.
+
 ### Member 1
 Brandon Hoggatt
 
